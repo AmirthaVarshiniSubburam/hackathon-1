@@ -4,92 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hackathon</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-
     <!-- Image and text -->
-    <section class= "navigation">
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
       <img src="natwestlogo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
       Natwest Group
-    </a>    
-</nav>
-</section>
-<section class="sign">
-<form class="dropdown-menu p-4">
-    <div class="form-group">
-      <label for="exampleDropdownFormEmail2">Email address</label>
-      <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-    </div>
-    <div class="form-group">
-      <label for="exampleDropdownFormPassword2">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
-    </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-      <label class="form-check-label" for="dropdownCheck2">
-        Remember me
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
-</section>
+    </a>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" href="login.html" target="_blank"><button type="button" class="btn  btn-sm" style="background-color:#1D7B8A; color:white">Login</button></a> </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="signup.html" target="_blank"><button type="button" class="btn btn-sm"style="background-color:#6F2C91; color:white">Signup</button></a>
+        </li>
+        </ul>
+  </nav>
+   <!-- !! carousel -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>      
+    </ol>
+    
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="carousel-nw-lon.png" alt="HomePage">        
+        <div class="carousel-caption d-none d-md-block" style="color: #5A287D; background-color: white; border-radius: 10px;"> 
+          <h5>Welcome to our Group</h5>
+          <p>NatWest Group is a relationship bank for a digital world. We champion potential; breaking down barriers and building financial confidence so the 19 million people, families and businesses we serve in communities throughout the UK and Ireland can rebuild and thrive. If our customers succeed, so will we</p>
+        </div>
+      </div>  
+    </div><br><br>
+    <!-- !!! cards -->
 
-  <section class="login">
-      <div class="container">
-          <form id="signup" class="form">
-              <h1>Sign Up</h1>
-              <div class="form-field">
-                  <label for="username">Username:</label>
-                  <input type="text" name="username" id="username" autocomplete="off">
-                  <small></small>
-              </div>
+    <div class="card-columns">
+        <div class="card">
+          <img class="card-img-top" src="people.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Who Are We !!</h5>
+            <p class="card-text">NatWest Group is the largest business and commercial bank in the UK, with a leading retail business.Our values guide and inspire us through everything we do.
 
-              <div class="form-field">
-                <label for="Address">Address:</label>
-                <input type="text" name="Address" id="Address" autocomplete="off">
-                <small></small>
-            </div>
-            <div class="form-field">
-                <label for="Phone Number">Phone Number:</label>
-                <input type="number" name="Phone Number" id="Phone Number" autocomplete="off">
-                <small></small>
-            </div>
-
+            </p>
+          </div>
+        </div>
+        <div class="card p-3">
+            <h5> Sustainable Banking</h5>
+          <blockquote class="blockquote mb-0 card-body">
+            <p> Monitoring and managing ESG outcomes are an integral part of NatWest Group’s operating structure. It not only enables us to fulfil our commitments to our stakeholders, wider society and the environment, it also has a clear commercial imperative. Put simply, we believe our focus on ESG is a crucial component that allows us to create sustainable long-term value and generate consistent financial returns.</p>
             
-  
-              <div class="form-field">
-                  <label for="email">Email:</label>
-                  <input type="text" name="email" id="email" autocomplete="off">
-                  <small></small>
-              </div>
-  
-              <div class="form-field">
-                  <label for="password">Password:</label>
-                  <input type="password" name="password" id="password" autocomplete="off">
-                  <small></small>
-              </div>
-  
-  
-              <div class="form-field">
-                  <label for="confirm-password">Confirm Password:</label>
-                  <input type="password" name="confirm-password" id="confirm-password" autocomplete="off">
-                  <small></small>
-              </div>
-  
-              <div class="form-field">
-                  <input type="submit" value="Sign Up">
-              </div>
-          </form>
+          </blockquote>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="forex.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Our business</h5>
+            <p class="card-text"> Through the NatWest and Royal Bank of Scotland brands we provide a comprehensive range of banking products and related financial services
+                Our Commercial & Institutional franchise draws together all of the capabilities from across our business to serve yours better.
+                Private Banking is the Investment Centre of Expertise for NatWest Group, servicing all client segments across Retail, Premier & Private Banking.</p>
+            
+          </div>
+        </div>
+        <div class="card text-white text-center p-3" style= "background-color:#5A287D;">
+          <blockquote class="blockquote mb-0">
+            <p>We have learnt new ways of working, and it’s important we carry those learnings forward – keeping an open mind…remaining agile…serving customers – whilst also creating an environment that is positive for colleagues.</p>
+            <footer class="blockquote-footer" style="color: white;">
+              <small>
+               Alison Rose <cite title="Source Title">CEO</cite>
+              </small>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Thrive together</h5>
+            <p class="card-text">By building ever deeper relationships with our customers, by taking action on the issues they care about and by supporting them more effectively at key stages of their lives, we can help our customers to thrive.</p>
+            
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img" src="savings.jpg" alt="Card image">
+        </div>
+        <div class="card p-3 text-right">
+          <blockquote class="blockquote mb-0">
+            <h5>Environment</h5>
+            <p>We acknowledge the importance of climate change not only in our own operations, but in the lives of all our customers and wider society. Protecting and restoring our natural world can make a substantial contribution to both climate change mitigation and adaptation.</p>
+            
+          </blockquote>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Our History</h5>
+            <p class="card-text">Our history in Britain goes back for hundreds of years. NatWest Group has grown out of 200 individual businesses. As we look to the future, we build on strong foundations to meet new challenges. Each day, we work hard to build a stronger tomorrow.</p>
+            
+          </div>
+        </div>
       </div>
-    </section>
-      
-  
 
-    <script src="script.js"></script>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

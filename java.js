@@ -1,10 +1,8 @@
 const usernameEl = document.querySelector('#username');
+const phonenumberE1 = document.querySelector('#phonenumber');
+const addressE1 = document.querySelector('#address');
 const emailEl = document.querySelector('#email');
 const passwordEl = document.querySelector('#password');
-const confirmPasswordEl = document.querySelector('#confirm-password');
-const phonenumberEl = document.querySelector('#phonenumber');
-const addressEl = document.querySelector('#address');
-
 const form = document.querySelector('#signup');
 
 
@@ -28,7 +26,46 @@ const checkUsername = () => {
     return valid;
 };
 
+const checkAddress = () => {
 
+    let valid = false;
+
+    const min = 10,
+        max = 250;
+
+    const address = addressE1.value;
+
+    if (!isRequired(address)) {
+        showError(addressE1, 'Address cannot be blank.');
+    } else if (!isBetween(address.length, min, max)) {
+        showError(addressE1, `Address must be between ${min} and ${max} characters.`)
+    } else {
+        showSuccess(addressE1);
+        valid = true;
+    }
+    return valid;
+};
+
+const checkPhonenumber = () =>{
+    let valid = false;
+
+    const min = 0,
+        max = 11;
+
+    const phonenumber = phonenumberE1.value;
+
+    if (!isRequired(phonenumber)) {
+        showError(phonenumberE1, 'Phone Number cannot be blank.');
+    } else if (!isPhonenumberValid(phonenumber)) {
+        showError(phonenumberE1, `Phone Number must have only 10 digits.`);
+    } else {
+        showSuccess(phonenumberE1);
+        valid = true;
+    }
+    return valid;
+
+}
+    
 const checkEmail = () => {
     let valid = false;
     const email = emailEl.value.trim();
@@ -61,23 +98,6 @@ const checkPassword = () => {
     return valid;
 };
 
-const checkConfirmPassword = () => {
-    let valid = false;
-    // check confirm password
-    const confirmPassword = confirmPasswordEl.value.trim();
-    const password = passwordEl.value.trim();
-
-    if (!isRequired(confirmPassword)) {
-        showError(confirmPasswordEl, 'Please enter the password again');
-    } else if (password !== confirmPassword) {
-        showError(confirmPasswordEl, 'The password does not match');
-    } else {
-        showSuccess(confirmPasswordEl);
-        valid = true;
-    }
-
-    return valid;
-};
 
 const isEmailValid = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -89,9 +109,9 @@ const isPasswordSecure = (password) => {
     return re.test(password);
 };
 
-const isPhoneNumber  = (phonenumber) => {
-    const re = new RegExp("^\d{10}$");
-    return re.test(phonenumber)
+const isPhonenumberValid = (phonenumber) => {
+    const re = new RegExp ("^[0-9]{10}$");
+    return re.test(phonenumber);
 }
 
 const isRequired = value => value === '' ? false : true;
@@ -132,16 +152,57 @@ form.addEventListener('submit', function (e) {
     let isUsernameValid = checkUsername(),
         isEmailValid = checkEmail(),
         isPasswordValid = checkPassword(),
-        isConfirmPasswordValid = checkConfirmPassword();
+        
+        isPhonenumberValid = checkPhonenumber(),
+        isAddressValid = checkAddress();
+        
 
     let isFormValid = isUsernameValid &&
         isEmailValid &&
-        isPasswordValid &&
-        isConfirmPasswordValid;
+        isPasswordValid &&        
+        isPhonenumberValid &&
+        isAddressValid;
+
 
     // submit to the server if the form is valid
     if (isFormValid) {
-
+        alert ("Sign up completed")
     }
 });
 
+
+const debounce = (fn, delay = 500) => {
+    let timeoutId;
+    return (...args) => {
+        // cancel the previous timer
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        // setup a new timer
+        timeoutId = setTimeout(() => {
+            fn.apply(null, args)
+        }, delay);
+    };
+};
+
+form.addEventListener('input', debounce(function (e) {
+    switch (e.target.id) {
+        case 'username':
+            checkUsername();
+            break;
+        case 'phonenumber':
+            checkPhonenumber();
+            break;
+            case 'address':
+            checkAddress();
+            break;
+
+        case 'email':
+            checkEmail();
+            break;
+        case 'password':
+            checkPassword();
+            break;
+        
+    }
+}));
